@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fyrre Magazine</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Work+Sans:wght@300;400;600&display=swap");
+
+      :root {
+        --ink: #111111;
+        --gray: #707070;
+        --line: #d7d7d7;
+        --paper: #f7f6f3;
+        --accent: #7e3a2a;
+        --coal: #0c0c0c;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Work Sans", sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 28px 32px 0;
+      }
+
+      .masthead {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--gray);
+      }
+
+      .title {
+        font-family: "Anton", sans-serif;
+        font-size: clamp(3.5rem, 9vw, 6.8rem);
+        letter-spacing: 0.03em;
+        margin: 12px 0 8px;
+      }
+
+      .ticker {
+        background: var(--ink);
+        color: #f6f6f6;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        padding: 8px 12px;
+        display: flex;
+        gap: 16px;
+        overflow: hidden;
+      }
+
+      .ticker span {
+        white-space: nowrap;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 32px;
+        padding: 28px 0 12px;
+        align-items: start;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero h2 {
+        font-family: "Anton", sans-serif;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        letter-spacing: 0.04em;
+        line-height: 1.1;
+      }
+
+      .hero p {
+        font-family: "Fraunces", serif;
+        font-size: 1rem;
+        color: var(--gray);
+        line-height: 1.6;
+        margin-top: 8px;
+      }
+
+      .hero-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+      }
+
+      .hero-art {
+        height: 320px;
+        width: 100%;
+        object-fit: cover;
+        border: 1px solid var(--line);
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 32px;
+        padding: 24px 0 36px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .story {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 16px;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .story:last-child {
+        border-bottom: none;
+      }
+
+      .story-thumb {
+        width: 120px;
+        height: 90px;
+        border: 1px solid var(--line);
+        object-fit: cover;
+      }
+
+      .story h3 {
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+
+      .story p {
+        font-size: 0.85rem;
+        color: var(--gray);
+        line-height: 1.5;
+      }
+
+      .story-meta {
+        margin-top: 8px;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: #444;
+      }
+
+      .aside-card {
+        border: 1px solid var(--line);
+        padding: 18px;
+        margin-bottom: 20px;
+        background: #fff;
+      }
+
+      .issue-card {
+        background: linear-gradient(140deg, #a45a42, #6c372b);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        min-height: 260px;
+      }
+
+      .issue-card h4 {
+        font-family: "Anton", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 0.04em;
+      }
+
+      .issue-card .date {
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        margin-top: 8px;
+      }
+
+      .issue-card .badge {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: #f3d9b5;
+        color: #4d2b20;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 0.7rem;
+        text-align: center;
+        margin-top: 18px;
+      }
+
+      .issue-cover {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        mix-blend-mode: multiply;
+        opacity: 0.55;
+      }
+
+      .issue-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .side-list {
+        display: grid;
+        gap: 10px;
+        font-size: 0.85rem;
+      }
+
+      .side-list span {
+        display: flex;
+        justify-content: space-between;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.7rem;
+        color: var(--gray);
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .newsletter-box {
+        background: #f4f4f4;
+      }
+
+      .newsletter-box input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        margin-top: 12px;
+        font-family: inherit;
+      }
+
+      .newsletter-box button {
+        margin-top: 10px;
+        padding: 10px 14px;
+        background: var(--ink);
+        color: #fff;
+        border: none;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.7rem;
+        cursor: pointer;
+      }
+
+      .section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 36px 0 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-title h2 {
+        font-family: "Anton", sans-serif;
+        font-size: 2.4rem;
+        letter-spacing: 0.05em;
+      }
+
+      .podcast-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        padding: 24px 0 40px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .podcast-card {
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .podcast-art {
+        height: 160px;
+        width: 100%;
+        object-fit: cover;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .podcast-body {
+        padding: 14px 16px 18px;
+      }
+
+      .podcast-body h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      .podcast-body p {
+        font-size: 0.8rem;
+        color: var(--gray);
+        line-height: 1.5;
+      }
+
+      .authors {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        border: 1px solid var(--line);
+        border-top: none;
+      }
+
+      .author {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        align-items: center;
+        gap: 12px;
+        padding: 16px;
+        border-top: 1px solid var(--line);
+      }
+
+      .author:nth-child(odd) {
+        border-right: 1px solid var(--line);
+      }
+
+      .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        object-fit: cover;
+      }
+
+      .author h4 {
+        font-size: 0.9rem;
+      }
+
+      .author span {
+        font-size: 0.7rem;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+      }
+
+      .newsletter-band {
+        margin-top: 40px;
+        background: var(--coal);
+        color: #fff;
+      }
+
+      .newsletter-band .ticker {
+        background: #000;
+      }
+
+      .newsletter-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 36px 32px;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .newsletter-inner h2 {
+        font-family: "Anton", sans-serif;
+        font-size: 2.4rem;
+        letter-spacing: 0.04em;
+      }
+
+      .newsletter-inner form {
+        display: flex;
+        gap: 8px;
+      }
+
+      .newsletter-inner input {
+        flex: 1;
+        padding: 12px;
+        border: none;
+      }
+
+      .newsletter-inner button {
+        padding: 12px 18px;
+        border: none;
+        background: #fff;
+        color: #000;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        cursor: pointer;
+      }
+
+      footer {
+        background: #000;
+        color: #fff;
+        padding: 24px 0 36px;
+      }
+
+      .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 32px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      .footer-inner span {
+        color: #bfbfbf;
+        display: block;
+        margin-top: 8px;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .content,
+        .newsletter-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .podcast-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .authors {
+          grid-template-columns: 1fr;
+        }
+
+        .author:nth-child(odd) {
+          border-right: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="masthead">
+        <span>Fyrre Magazine</span>
+        <span>Issue 03 / 2022</span>
+      </div>
+      <h1 class="title">Art &amp; Life</h1>
+      <div class="ticker">
+        <span>News ticker</span>
+        <span>New exhibitions</span>
+        <span>Street art cultures</span>
+        <span>Podcast releases</span>
+        <span>Design in focus</span>
+      </div>
+
+      <section class="hero">
+        <div>
+          <h2>Don't close your eyes</h2>
+        </div>
+        <div>
+          <p>
+            A closer look at the quiet revolutions in public space, and the artists reshaping how we
+            see the everyday.
+          </p>
+          <a class="hero-link" href="#">Read the story</a>
+        </div>
+      </section>
+
+      <img
+        class="hero-art"
+        src="Assets/lead article/dimitar-bechev-fRBpWLAcWIY-unsplash 1.png"
+        alt="Feature artwork mural"
+      />
+
+      <section class="content">
+        <div>
+          <article class="story">
+            <img
+              class="story-thumb"
+              src="Assets/articles/articles/amelia-brown-yWNiCZw5yps-unsplash 1.png"
+              alt="Article thumbnail portrait"
+            />
+            <div>
+              <h3>Hope dies last</h3>
+              <p>Across continents, a new wave of muralists is shifting the narrative through scale and empathy.</p>
+              <div class="story-meta">Text &amp; photo · 5 min</div>
+            </div>
+          </article>
+          <article class="story">
+            <img
+              class="story-thumb"
+              src="Assets/articles/articles/birmingham-museums-trust-TWavMkqC_cc-usnplash 1.png"
+              alt="Article thumbnail sculpture"
+            />
+            <div>
+              <h3>The best art museums</h3>
+              <p>From reimagined classics to brave curations, we list the must-visit halls this year.</p>
+              <div class="story-meta">Review · 4 min</div>
+            </div>
+          </article>
+          <article class="story">
+            <img
+              class="story-thumb"
+              src="Assets/articles/articles/fabian-bachili-A2Zf3fGbdFQ-unsplash 1.png"
+              alt="Article thumbnail details"
+            />
+            <div>
+              <h3>The devil is the details</h3>
+              <p>How micro-gestures in typography can tilt a whole visual system toward meaning.</p>
+              <div class="story-meta">Design · 6 min</div>
+            </div>
+          </article>
+          <article class="story">
+            <img
+              class="story-thumb"
+              src="Assets/articles/articles/simon-sun-PLai_SojR78-unsplash 1.png"
+              alt="Article thumbnail illustration"
+            />
+            <div>
+              <h3>An indestructible hope</h3>
+              <p>Voices from the fringe and the unexpected collaborations making space for joy.</p>
+              <div class="story-meta">Interview · 7 min</div>
+            </div>
+          </article>
+          <article class="story">
+            <img
+              class="story-thumb"
+              src="Assets/articles/articles/diogo-nunes-Wa9ilX9XYOI-unsplash 2.png"
+              alt="Article thumbnail street art"
+            />
+            <div>
+              <h3>Street art festival</h3>
+              <p>A city turns its streets into an open gallery, inviting everyone to add a mark.</p>
+              <div class="story-meta">Festival · 3 min</div>
+            </div>
+          </article>
+          <article class="story">
+            <img
+              class="story-thumb"
+              src="Assets/articles/articles/serhii-tyaglovsky-lCdhTOCNrt4-unsplash 1.png"
+              alt="Article thumbnail artist"
+            />
+            <div>
+              <h3>Through the eyes of street artists</h3>
+              <p>Portraits from the alleys, with a conversation about process, rhythm, and freedom.</p>
+              <div class="story-meta">Photo essay · 8 min</div>
+            </div>
+          </article>
+        </div>
+        <aside>
+          <div class="aside-card issue-card">
+            <img class="issue-cover" src="Assets/articles/sidebar/magazin-cover.png" alt="Magazine cover" />
+            <div class="issue-content">
+              <h4>Fyrre</h4>
+              <div class="date">03/2022</div>
+              <div class="badge">NEW ISSUE</div>
+            </div>
+          </div>
+          <div class="aside-card">
+            <strong>Most read</strong>
+            <div class="side-list">
+              <span><em>01</em> Street art festival</span>
+              <span><em>02</em> Hope dies last</span>
+              <span><em>03</em> Artists who want to rise above</span>
+            </div>
+          </div>
+          <div class="aside-card newsletter-box">
+            <strong>Design news to your inbox</strong>
+            <input type="email" placeholder="Your email" />
+            <button type="button">Join</button>
+          </div>
+        </aside>
+      </section>
+
+      <div class="section-title">
+        <h2>Podcast</h2>
+        <span>All episodes</span>
+      </div>
+      <section class="podcast-grid">
+        <article class="podcast-card">
+          <img class="podcast-art" src="Assets/podcasts/FYRRE podcast-cover EP 05.png" alt="Podcast cover EP 05" />
+          <div class="podcast-body">
+            <h3>The problem of today's cultural development</h3>
+            <p>EP 05 · New forms of public engagement.</p>
+          </div>
+        </article>
+        <article class="podcast-card">
+          <img class="podcast-art" src="Assets/podcasts/FYRRE podcast-cover EP 04.png" alt="Podcast cover EP 04" />
+          <div class="podcast-body">
+            <h3>The hidden messages of Jack Nelson</h3>
+            <p>EP 04 · Symbols, surfaces, and silence.</p>
+          </div>
+        </article>
+        <article class="podcast-card">
+          <img class="podcast-art" src="Assets/podcasts/FYRRE podcast-cover EP 03.png" alt="Podcast cover EP 03" />
+          <div class="podcast-body">
+            <h3>Behind the scenes of the street art culture</h3>
+            <p>EP 03 · Process notes from the walls.</p>
+          </div>
+        </article>
+      </section>
+
+      <div class="section-title">
+        <h2>Authors</h2>
+        <span>All authors</span>
+      </div>
+      <section class="authors">
+        <div class="author">
+          <img class="avatar" src="Assets/authors/Jakob Gronberg.png" alt="Jakob Gronberg" />
+          <div>
+            <h4>Jakob Granberg</h4>
+            <span>Editor</span>
+          </div>
+        </div>
+        <div class="author">
+          <img class="avatar" src="Assets/authors/Louise Jensen.png" alt="Louise Jensen" />
+          <div>
+            <h4>Louise Jensen</h4>
+            <span>Writer</span>
+          </div>
+        </div>
+        <div class="author">
+          <img class="avatar" src="Assets/authors/Anne Henry.png" alt="Anne Henry" />
+          <div>
+            <h4>Anne Henry</h4>
+            <span>Contributor</span>
+          </div>
+        </div>
+        <div class="author">
+          <img class="avatar" src="Assets/authors/Anna Nielsen.png" alt="Anna Nielsen" />
+          <div>
+            <h4>Anna Nielsen</h4>
+            <span>Illustrator</span>
+          </div>
+        </div>
+        <div class="author">
+          <img class="avatar" src="Assets/authors/Jane Cooper.png" alt="Jane Cooper" />
+          <div>
+            <h4>Jane Cooper</h4>
+            <span>Photographer</span>
+          </div>
+        </div>
+        <div class="author">
+          <img class="avatar" src="Assets/authors/Cristofer Vaccaro.png" alt="Cristofer Vaccaro" />
+          <div>
+            <h4>Cristofer Vaccaro</h4>
+            <span>Art direction</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="newsletter-band">
+      <div class="ticker">
+        <span>Newsletter</span>
+        <span>Newsletter</span>
+        <span>Newsletter</span>
+        <span>Newsletter</span>
+        <span>Newsletter</span>
+      </div>
+      <div class="newsletter-inner">
+        <h2>Design news to your inbox</h2>
+        <form>
+          <input type="email" placeholder="you@email.com" />
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          Fyrre Magazine
+          <span>Independent culture journal</span>
+        </div>
+        <div>
+          Contact
+          <span>hello@fyrre.com</span>
+        </div>
+        <div>
+          Offices
+          <span>Stockholm / Berlin</span>
+        </div>
+        <div>
+          Social
+          <span>Instagram · Twitter</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+      .reference-image {
+        display: none;
+      }
