@@ -2,7 +2,7 @@
 
 A front page development exercise based on the **Fyrre Magazine** Figma design.  
 The goal: pixel-perfect implementation, accessible code, and product-thinking approach.
-
+Live page: https://ygolan93.github.io/Front_Page-Example-Project/
 ---
 
 ## 🛠️ Tech Stack
