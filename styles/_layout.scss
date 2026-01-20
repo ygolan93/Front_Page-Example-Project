@@ -1,0 +1,109 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+}
+
+.masthead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--gray);
+  position: relative;
+}
+
+.masthead span:last-child {
+  position: absolute;
+  right: 0;
+  background: #efefef;
+  color: #777;
+  padding: 4px 10px;
+  letter-spacing: 0.2em;
+}
+
+.title {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(3.5rem, 9vw, 6.8rem);
+  letter-spacing: 0.03em;
+  margin: 8px 0 6px;
+  line-height: 0.88;
+}
+
+.ticker {
+  background: var(--ink);
+  color: #f6f6f6;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 5px 10px;
+  display: flex;
+  gap: 14px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.ticker span {
+  white-space: nowrap;
+}
+
+.ticker span:first-child {
+  background: #fff;
+  color: #000;
+  padding: 2px 8px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 28px;
+  padding: 18px 0 12px;
+  align-items: start;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero h2 {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(2.2rem, 4.6vw, 3.2rem);
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.hero p {
+  font-family: "Fraunces", serif;
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-top: 6px;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+}
+
+.hero-art {
+  height: 280px;
+  width: 100%;
+  object-fit: cover;
+  border: none;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  padding: 22px 0 36px;
+  border-bottom: 1px solid var(--line);
+}

@@ -1,0 +1,344 @@
+.story {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.story:last-child {
+  border-bottom: none;
+}
+
+.story-thumb {
+  width: 104px;
+  height: 104px;
+  border: none;
+  object-fit: cover;
+}
+
+.story h3 {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.story p {
+  font-size: 0.78rem;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.story-meta {
+  margin-top: 8px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #444;
+}
+
+.aside-card {
+  border: 1px solid var(--line);
+  padding: 18px;
+  margin-bottom: 20px;
+  background: #fff;
+}
+
+.issue-card {
+  background: linear-gradient(140deg, #a45a42, #6c372b);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.issue-card h4 {
+  font-family: "Anton", sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+}
+
+.issue-card .date {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  margin-top: 8px;
+}
+
+.issue-card .badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #f3d9b5;
+  color: #4d2b20;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-align: center;
+  margin-top: 18px;
+}
+
+.issue-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
+
+.issue-content {
+  position: relative;
+  z-index: 1;
+}
+
+.side-list {
+  display: grid;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.side-list em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.side-list span {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  color: var(--gray);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.newsletter-box {
+  background: #fff;
+}
+
+.newsletter-box input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  margin-top: 12px;
+  font-family: inherit;
+}
+
+.newsletter-box button {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 32px 0 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-title h2 {
+  font-family: "Anton", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.section-title span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--gray);
+}
+
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 16px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.podcast-card {
+  border-right: 1px solid var(--line);
+  background: #fff;
+  padding: 18px 16px 20px;
+}
+
+.podcast-card:last-child {
+  border-right: none;
+}
+
+.podcast-art {
+  height: 160px;
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.podcast-body {
+  padding: 12px 0 6px;
+}
+
+.podcast-body h3 {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.podcast-body p {
+  font-size: 0.75rem;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.authors {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.author {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 16px;
+  border-top: 1px solid var(--line);
+}
+
+.author:nth-child(odd) {
+  border-right: 1px solid var(--line);
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+
+.author h4 {
+  font-size: 0.9rem;
+}
+
+.author span {
+  font-size: 0.7rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.newsletter-band {
+  margin-top: 40px;
+  background: var(--coal);
+  color: #fff;
+}
+
+.newsletter-band .ticker {
+  background: #000;
+}
+
+.newsletter-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 28px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.newsletter-inner h2 {
+  font-family: "Anton", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.04em;
+}
+
+.newsletter-inner form {
+  display: flex;
+  gap: 8px;
+}
+
+.newsletter-inner input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+}
+
+.newsletter-inner button {
+  padding: 12px 18px;
+  border: none;
+  background: #fff;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  padding: 28px 0 40px;
+}
+
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.footer-inner span {
+  color: #bfbfbf;
+  display: block;
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .content,
+  .newsletter-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .podcast-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .podcast-card {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .podcast-card:last-child {
+    border-bottom: none;
+  }
+
+  .authors {
+    grid-template-columns: 1fr;
+  }
+
+  .author:nth-child(odd) {
+    border-right: none;
+  }
+}
