@@ -66,10 +66,22 @@ a {
   text-align: center;
   padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.site-header {
+  padding-top: 0;
+  max-width: var(--page-max-width, 1200px);
+  margin: 0 auto var(--gap-masthead-to-ticker, 32px);
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .masthead {
   display: flex;
+  justify-content: space-between;
   justify-content: space-between;
   align-items: center;
   font-size: 0.72rem;
@@ -115,7 +127,7 @@ a {
 .ticker {
   background: var(--ink);
   color: #f6f6f6;
-  font-size: 0.62rem;
+  font-size: 0.56rem;
   text-transform: uppercase;
   letter-spacing: 0.3em;
   padding: 5px 0;
@@ -125,6 +137,7 @@ a {
   overflow: hidden;
   text-align: center;
   align-items: center;
+  line-height: 1;
 }
 
 .ticker span {
@@ -169,6 +182,10 @@ a {
   margin: 0;
   margin-left: 0;
   padding-left: 0;
+  text-align: left;
+  margin: 0;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .hero p {
@@ -176,28 +193,44 @@ a {
   font-size: 1.05rem;
   color: var(--gray);
   line-height: 1.6;
-  margin-top: 6px;
+  margin-top: 0;
 }
 
 .hero-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 14px;
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: 0.58rem;
   text-transform: uppercase;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.28em;
 }
 
 .hero-art {
+  display: block;
   display: block;
   width: 100%;
   height: auto;
   margin-top: 0;
   margin-bottom: var(--hero-section-bottom-margin, 80px);
+  height: auto;
+  margin-top: 0;
+  margin-bottom: var(--hero-section-bottom-margin, 80px);
   object-fit: cover;
   border: none;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    row-gap: 24px;
+    column-gap: 0;
+  }
+
+  .hero > div:last-child {
+    max-width: 100%;
+    justify-self: stretch;
+  }
 }
 
 @media (max-width: 900px) {
@@ -435,10 +468,11 @@ a {
 
 .author {
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 64px 1fr;
   align-items: center;
-  gap: 12px;
-  padding: 18px 16px;
+  gap: 14px;
+  padding: 16px 14px;
+  min-height: 90px;
   border-top: 1px solid var(--line);
 }
 
@@ -447,22 +481,22 @@ a {
 }
 
 .avatar {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: 1px solid var(--line);
   object-fit: cover;
 }
 
 .author h4 {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .author span {
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   color: var(--gray);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
 }
 
 .newsletter-band {
