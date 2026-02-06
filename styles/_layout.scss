@@ -1,48 +1,86 @@
 .page {
-  max-width: 960px;
+  max-width: var(--page-max-width, 1200px);
   margin: 0 auto;
-  padding: 20px 24px 0;
+  padding: 24px var(--page-gutter, 0px) 0;
+}
+
+.site-header,
+.ticker-inner {
+  max-width: var(--page-max-width, 1200px);
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.site-header {
+  padding-top: 0;
+  max-width: var(--page-max-width, 1200px);
+  margin: 0 auto var(--gap-masthead-to-ticker, 32px);
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .masthead {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  font-size: 0.6rem;
+  font-size: 0.62rem;
+  text-align: left;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: var(--gray);
-  position: relative;
-}
-
-.masthead span:last-child {
-  position: absolute;
-  right: 0;
-  background: #efefef;
-  color: #777;
-  padding: 4px 10px;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
   letter-spacing: 0.2em;
+  color: #8c8c8c;
 }
 
 .title {
   font-family: "Anton", sans-serif;
-  font-size: clamp(3.5rem, 9vw, 6.8rem);
-  letter-spacing: 0.03em;
-  margin: 8px 0 6px;
-  line-height: 0.88;
+  font-size: var(--logo-font-size, 8.6rem);
+  letter-spacing: var(--logo-letter-spacing, 0.03em);
+  margin: 14px 0 0;
+  line-height: 0.8;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.page > .title {
+  margin-bottom: var(--gap-masthead-to-ticker, 16px);
+}
+
+.logo-wordmark {
+  font-family: "Anton", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: var(--logo-font-size, 8.6rem);
+  letter-spacing: var(--logo-letter-spacing, 0.03em);
+  line-height: 0.8;
+  display: block;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
 }
 
 .ticker {
   background: var(--ink);
   color: #f6f6f6;
-  font-size: 0.62rem;
+  font-size: 0.56rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  padding: 5px 10px;
+  letter-spacing: 0.22em;
+  padding: 5px 0;
+  margin-bottom: var(--gap-ticker-to-hero, 0px);
   display: flex;
-  gap: 14px;
+  gap: 16px;
   overflow: hidden;
   align-items: center;
+  line-height: 1;
 }
 
 .ticker span {
@@ -52,52 +90,84 @@
 .ticker span:first-child {
   background: #fff;
   color: #000;
-  padding: 2px 8px;
+  border: 1px solid #111;
+  padding: 3px 12px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 28px;
-  padding: 18px 0 12px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  column-gap: 80px;
   align-items: start;
-  border-bottom: 1px solid var(--line);
+  margin-top: var(--hero-margin-top-from-ticker, 56px);
+  margin-bottom: var(--gap-hero-to-mural, 32px);
+  padding: 0;
+  border-bottom: none;
+}
+
+.hero > div {
+  min-width: 0;
+}
+
+.hero > div:last-child {
+  max-width: 360px;
+  width: 100%;
+  justify-self: end;
 }
 
 .hero h2 {
   font-family: "Anton", sans-serif;
-  font-size: clamp(2.2rem, 4.6vw, 3.2rem);
-  letter-spacing: 0.02em;
-  line-height: 1.05;
+  font-size: var(--hero-title-font-size, 5.2rem);
+  letter-spacing: var(--hero-title-letter-spacing, 0.055em);
+  line-height: var(--hero-title-line-height, 0.92);
   text-transform: uppercase;
+  text-align: left;
+  margin: 0;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .hero p {
   font-family: "Fraunces", serif;
-  font-size: 0.85rem;
-  color: var(--gray);
+  font-size: 0.76rem;
+  color: #5f5f5f;
   line-height: 1.6;
-  margin-top: 6px;
+  margin-top: 0;
 }
 
 .hero-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 14px;
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: 0.58rem;
   text-transform: uppercase;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.28em;
 }
 
 .hero-art {
-  height: 280px;
+  display: block;
   width: 100%;
+  height: auto;
+  margin-top: 0;
+  margin-bottom: var(--hero-section-bottom-margin, 80px);
   object-fit: cover;
   border: none;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    row-gap: 24px;
+    column-gap: 0;
+  }
+
+  .hero > div:last-child {
+    max-width: 100%;
+    justify-self: stretch;
+  }
 }
 
 .content {

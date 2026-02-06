@@ -212,10 +212,11 @@
 
 .author {
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 64px 1fr;
   align-items: center;
-  gap: 12px;
-  padding: 18px 16px;
+  gap: 14px;
+  padding: 16px 14px;
+  min-height: 90px;
   border-top: 1px solid var(--line);
 }
 
@@ -224,22 +225,22 @@
 }
 
 .avatar {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: 1px solid var(--line);
   object-fit: cover;
 }
 
 .author h4 {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .author span {
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   color: var(--gray);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
 }
 
 .newsletter-band {
